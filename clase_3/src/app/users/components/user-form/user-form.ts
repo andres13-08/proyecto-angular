@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class UserForm {
   public userForm: FormGroup;
+  @Output() sendUser = new EventEmitter<User>();
   constructor(private fb: FormBuilder) {
   this.userForm = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(3), Validators.max(10)]],
@@ -19,8 +20,23 @@ export class UserForm {
 }
 
 onSubmit() {
-  console.log();(this.userForm.value);
-  console.log();(this.userForm.controls['message'].errores)
-  
+  if(this.userForm.invalid){
+    alert("Los campos deben ser validos");
+    return;
+  }
+
+  this.sendUser.emit(this.userForm.value);
 }
+
+  get isNombreInvalid() {
+    return this.userForm.controls['nombre'].dirty && this.userForm.controls['nombre'].invalid;
+  }
+
+  get isApellidoInvalid() {
+    return this.userForm.controls['apellido'].dirty && this.userForm.controls['apellido'].invalid;
+  }
+
+  get isEmailInvalid() {
+    return this.userForm.controls['email'].dirty && this.userForm.controls['email'].invalid;
+  }
 }

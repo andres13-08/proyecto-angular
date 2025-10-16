@@ -24,5 +24,6 @@
     }
   }
 
-<user-list [Users] ="users"></user-list>
-<user-form></user-form>
+<app-user-list [users] ="usersList"></app-user-list>
+
+<app-user-form (sendUser)="onAddUser($event)"></app-user-form>

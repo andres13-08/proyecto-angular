@@ -8,13 +8,18 @@ import { User } from './interface/User';
   styleUrl: './users.css'
 })
 export class Users {
-  nombre: string = "";
-  apellido: string = "";
+  nombre: string = "Andreza";
+  apellido: string = "Campbell";
   edad: number = 33;
   
-  users: User[] = [
+  usersList: User[] = [
     {nombre: 'Jose', apellido: 'Becerra'},
     {nombre: 'Ivan', apellido: 'Becerra'},
     {nombre: 'María', apellido: 'Becerra' },
   ];
+
+  onAddUser(user: User) {
+    this.usersList.push(users);
+  }
+
 }

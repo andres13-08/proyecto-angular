@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Users } from './users.ts';
-import { FormsModule } from '@angular/forms';
-import { UserList } from './components/user-list/user-list';
-import { UserForm } from './components/user-form/user-form';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { Users } from './users'; // El componente contenedor
+import { UserList } from './components/user-list/user-list'; // El componente que falta
+import { UserForm } from './components/user-form/user-form.ts'; 
+
 
 
 
