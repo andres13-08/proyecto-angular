@@ -26,6 +26,6 @@
   <h2>Lista de Usuarios</h2>
   <ul>
     @for (user of users; track $index) {
-        <li [ngClass]="{'text-red': $index == 1}">{{ user.nombre }} {{ user.apellido}} </li>
+        <li [ngClass]="{'text-red': $index === 1, 'bg-green': user.nombre === 'María'}">{{ user.nombre }} {{ user.apellido}} </li>
     }
   </ul>
