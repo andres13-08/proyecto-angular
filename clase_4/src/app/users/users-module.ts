@@ -9,10 +9,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatAnchor, MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from '@angular/material/input';
+import { SharedModule } from '../shared/shared-module';
 
 @NgModule({
   declarations: [Users, UserList, UserForm],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatFormField, MatLabel, MatAnchor, MatButtonModule, MatInputModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatFormField, MatLabel, MatAnchor, MatButtonModule, MatInputModule, SharedModule],
   exports: [Users], 
 })
 export class UsersModule { }

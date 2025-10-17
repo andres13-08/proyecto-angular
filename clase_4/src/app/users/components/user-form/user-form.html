@@ -1,11 +1,11 @@
-<div>
+<div class="userFormContainer">
     <form [formGroup]="userForm" (submit)="onSubmit()">
         <mat-form-field>
             <mat-label for="nombre">Nombre:</mat-label>
             <input matInput type="text" id="nombre" formControlName="nombre"/>
         </mat-form-field>
     
-    <mat-form-field>
+    <mat-form-field>    
         <mat-label for="apellido">Apellido:</mat-label>
         <input matInput type="text" id="apellido" formControlName="apellido"/>
     </mat-form-field>
@@ -15,7 +15,9 @@
         <input matInput type="text" id="email" formControlName="email"/>
     </mat-form-field>
 
-    <div *ngIf="isEmailInvalid">Error con el email</div>
+    @if (isEmailInvalid) {
+        <div class="alert alert-danger">El email es inválido</div>
+    }
 
     <button matButton="filled" type="submit">Crear Usuario</button>   
     </form>

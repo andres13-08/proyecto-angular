@@ -14,9 +14,9 @@ export class UserForm {
   @Output() sendUser = new EventEmitter<User>();
   constructor(private fb: FormBuilder) {
   this.userForm = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(3), Validators.max(10)]],
-    apellido: ['', [Validators.required, Validators.minLength(3), Validators.max(10)]],
-    email: ['', [Validators.email]],
+    nombre: ['', [Validators.required, Validators.minLength(3), Validators.max(50)]],
+    apellido: ['', [Validators.required, Validators.minLength(3), Validators.max(50)]],
+    email: ['', [Validators.required, Validators.email]],
   });
 }
 
@@ -41,3 +41,4 @@ onSubmit() {
     return this.userForm.controls['email'].dirty && this.userForm.controls['email'].invalid;
   }
 }
+

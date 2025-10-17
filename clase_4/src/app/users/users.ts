@@ -13,21 +13,24 @@ export class Users {
   edad: number = 33;
   
   usersList: User[] = [
-    { id: 1, nombre: 'Jose', apellido: 'Becerra', email: 'jose.becerra13@hotmail.com' },
-    { id: 2, nombre: 'Ivan', apellido: 'Becerra', email: 'ivan.becerra13@hotmail.com' },
-    { id: 3, nombre: 'María', apellido: 'Becerra', email: 'maria.becerra13@hotmail.com' },
-    { id: 4, nombre: 'Andrea', apellido: 'Becerra', email: 'andrea.becerra13@hotmail.com' },
-    { id: 5, nombre: 'Turbin', apellido: 'Becerra', email: 'turbin.becerra13@hotmail.com' },
-    { id: 6, nombre: 'Felipe', apellido: 'Becerra', email: 'felipe.becerra13@hotmail.com' },
-    { id: 7, nombre: 'Daniel', apellido: 'Becerra', email: 'daniel.becerra13@hotmail.com' },
-    { id: 8, nombre: 'Laura', apellido: 'Becerra', email: 'laura.becerra13@hotmail.com' },
-    { id: 9, nombre: 'Cristian', apellido: 'Becerra', email: 'cristian.becerra13@hotmail.com' },
-    { id: 10, nombre: 'Felipe', apellido: 'Becerra', email: 'felipe4.becerra13@hotmail.com' },
-    { id: 11, nombre: 'Miguel', apellido: 'Pérez', email: 'miguel.perez13@hotmail.com' },
+    { id: 1, nombre: 'jose', apellido: 'becerra', email: 'jose.becerra13@hotmail.com' },
+    { id: 2, nombre: 'ivan', apellido: 'becerra', email: 'ivan.becerra13@hotmail.com' },
+    { id: 3, nombre: 'maría', apellido: 'becerra', email: 'maria.becerra13@hotmail.com' },
+    { id: 4, nombre: 'andrea', apellido: 'becerra', email: 'andrea.becerra13@hotmail.com' },
+    { id: 5, nombre: 'turbin', apellido: 'becerra', email: 'turbin.becerra13@hotmail.com' },
+    { id: 6, nombre: 'felipe', apellido: 'becerra', email: 'felipe.becerra13@hotmail.com' },
+    { id: 7, nombre: 'daniel', apellido: 'becerra', email: 'daniel.becerra13@hotmail.com' },
+    { id: 8, nombre: 'laura', apellido: 'becerra', email: 'laura.becerra13@hotmail.com' },
+    { id: 9, nombre: 'cristian', apellido: 'becerra', email: 'cristian.becerra13@hotmail.com' },
+    { id: 10, nombre: 'felipe', apellido: 'becerra', email: 'felipe4.becerra13@hotmail.com' },
+    { id: 11, nombre: 'miguel', apellido: 'pérez', email: 'miguel.perez13@hotmail.com' },
   ];
 
   onAddUser(user: User) {
-    this.usersList.push(user);
+    console.log(user);
+    this.usersList.push({
+      ...user,
+      id: this.usersList[this.usersList.length - 1].id + 1,
+    });
   }
-
 }
