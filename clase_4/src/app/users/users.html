@@ -1,0 +1,29 @@
+<h1>Users</h1>
+
+<p>Este es el PANEL DE CONTROL DE USUARIOS</p>
+
+<h2>Datos del Usuario</h2>
+<p>Nombre: {{ nombre }}</p>
+<p>Apellido: {{ apellido }}</p>
+
+<p *ngIf="edad > 20">Edad: {{ edad }} //Nota: Si la edad es mayor de 20, entonces se muestra la edad.</p> 
+
+@if (edad > 20) {
+    <p>La edad es mayor a 20</p>
+} @else {
+    <p>La edad es menor a 20</p>
+}
+
+@switch (edad) { 
+    @case (20) {
+    <p style="color: red;">La edad es 20. //Nota: Si la edad es 20, entonces arroja la edad. También se pueden agregar estilos directamente</p>
+    } @case (25) {
+        <p style="color: green">La edad es 30. //Nota: Si la edad es 20, entonces arroja la edad. También se pueden agregar estilos directamente</p>
+    } @default {
+        <p style="color: gray">La edad es {{ edad }} //Nota: Si la edad ingresada no es ni 20 ni 30, entonces arroja la edad misma. También se pueden agregar estilos directamente </p> 
+    }
+  }
+
+<app-user-list [User] ="usersList"></app-user-list>
+
+<app-user-form (sendUser)="onAddUser($event)"></app-user-form>
