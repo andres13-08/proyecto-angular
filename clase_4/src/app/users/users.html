@@ -6,6 +6,9 @@
 <p>Nombre: {{ nombre }}</p>
 <p>Apellido: {{ apellido }}</p>
 
+<app-user-form (sendUser)="onAddUser($event)"></app-user-form>
+<app-user-list [User] ="usersList"></app-user-list>
+
 <p *ngIf="edad > 20">Edad: {{ edad }} //Nota: Si la edad es mayor de 20, entonces se muestra la edad.</p> 
 
 @if (edad > 20) {
@@ -23,7 +26,3 @@
         <p style="color: gray">La edad es {{ edad }} //Nota: Si la edad ingresada no es ni 20 ni 30, entonces arroja la edad misma. También se pueden agregar estilos directamente </p> 
     }
   }
-
-<app-user-list [User] ="usersList"></app-user-list>
-
-<app-user-form (sendUser)="onAddUser($event)"></app-user-form>
