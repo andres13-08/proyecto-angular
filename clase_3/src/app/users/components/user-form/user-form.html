@@ -9,9 +9,8 @@
     <label for="email">Email:</label>
     <input type="text" id="email" formControlName="email"/>
 
-    @if (isEmailInvalid) {
-        <div>Error con el email</div>    
-    }
+    <div *ngIf="isEmailInvalid">Error con el email</div>
+
 <button type="submit">Crear Usuario</button>   
 </form>
 </div>

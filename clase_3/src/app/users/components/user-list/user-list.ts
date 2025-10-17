@@ -8,5 +8,5 @@ import { User } from '../../interface/User';
   styleUrl: './user-list.css'
 })
 export class UserList {
-  @Input() users: users[] = [];  
+  @Input() User: User[] = [];  
 }

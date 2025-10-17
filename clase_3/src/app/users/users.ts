@@ -13,13 +13,13 @@ export class Users {
   edad: number = 33;
   
   usersList: User[] = [
-    {nombre: 'Jose', apellido: 'Becerra'},
-    {nombre: 'Ivan', apellido: 'Becerra'},
-    {nombre: 'María', apellido: 'Becerra' },
+    {nombre: 'Jose', apellido: 'Becerra', email: 'jose.becerra13@hotmail.com'},
+    {nombre: 'Ivan', apellido: 'Becerra', email: 'ivan.becerra13@hotmail.com'},
+    {nombre: 'María', apellido: 'Becerra', email: 'maria.becerra13@hotmail.com'},
   ];
 
   onAddUser(user: User) {
-    this.usersList.push(users);
+    this.usersList.push(user);
   }
 
 }
