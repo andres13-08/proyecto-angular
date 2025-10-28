@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { User } from './interface/User';
 import { UserService } from '../services/user';
 
@@ -13,11 +13,11 @@ export class Users {
   nombre: string = ""; //Acá puedo poner un nmbre directamwnte o solo dejarlo vacío. Al estar vacío, deja que el usuario visualice lo que va escribiendo
   apellido: string = "";
   edad: number = 33;
-
+  
   h1style = 'font-size: 55px; color: blue;';
   usersList: User[];
   userToEdit: User | undefined;
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
     this.usersList = this.userService.getUsers();
   }
 

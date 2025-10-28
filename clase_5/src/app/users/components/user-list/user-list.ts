@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { User } from '../../interface/User';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -19,13 +19,9 @@ export class UserList {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   userService: any;
 
-  constructor() {
-    this.User = this.userService.getUsers();
-  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.data = this.userService.getUsers();
   }
 
   ngOnChange() {
