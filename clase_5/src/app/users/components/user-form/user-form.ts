@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter, output, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../interface/User'
+import { UserService } from '../../../services/user-service';
+import { User } from '../../interface/User';
 
 @Component({
   selector: 'app-user-form',
@@ -11,16 +12,34 @@ import { User } from '../../interface/User'
 
 export class UserForm {
   public userForm: FormGroup;
-  @Output() sendUser = new EventEmitter<User>();
-  @Output() sendEditUser = new EventEmitter<User>();  
-  @Input() usertoEdit: User | null = null;
-  constructor(private fb: FormBuilder) {
+  isEditing: boolean = false;
+ 
+  constructor(private fb: FormBuilder, private userService: UserService) {
   this.userForm = this.fb.group({
-    nombre: [this.usertoEdit?.nombre || '', [Validators.required, Validators.minLength(3), Validators.max(50)]],
-    apellido: [this.usertoEdit?.apellido || '', [Validators.required, Validators.minLength(3), Validators.max(50)]],
-    email: [this.usertoEdit?.email || '', [Validators.email]],
+    id: [''],
+    nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]], 
+    apellido: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]], 
+    email: ['', [Validators.email]], 
+  });
+  
+  this.userService.userEdit.subscribe(user => {
+    if (user) {
+      this.userForm.patchValue({
+        id: user.id,
+        nombre: user.nombre,
+        apellido: user.apellido,
+        email: user.email
+      });
+      this.isEditing = true;
+    } else {
+      this.isEditing = false;
+      this.userForm.reset();
+    }
   });
 }
+
+
+ngOnChanges() {}
 
 onSubmit() {
   if(this.userForm.invalid){
@@ -28,24 +47,15 @@ onSubmit() {
     return;
   }
 
-  if (this.usertoEdit) {
-    this.sendEditUser.emit(this.userForm.value); 
+  if (this.isEditing) {
+    this.userService.updateUser(this.userForm.value.id, this.userForm.value);
+    this.userService.userEdit.next(null);
+    this.isEditing = false;
+    this.userForm.reset();
   } else {
-    this.sendUser.emit(this.userForm.value);
-  }
+    this.userService.addUser(this.userForm.value);
+
   this.userForm.reset();
+  this.isEditing = false;
 }
-
-  get isNombreInvalid() {
-    return this.userForm.controls['nombre'].dirty && this.userForm.controls['nombre'].invalid;
-  }
-
-  get isApellidoInvalid() {
-    return this.userForm.controls['apellido'].dirty && this.userForm.controls['apellido'].invalid;
-  }
-
-  get isEmailInvalid() {
-    return this.userForm.controls['email'].dirty && this.userForm.controls['email'].invalid;
-  }
-}
-
+}}

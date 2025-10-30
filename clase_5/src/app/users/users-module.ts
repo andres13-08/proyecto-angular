@@ -10,7 +10,7 @@ import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/fo
 import { MatAnchor, MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../shared/shared-module';
-import { UserService } from '../services/user';
+import { UserService } from '../services/user-service';
 import { Dialog } from './components/dialog/dialog';
 
 @NgModule({
