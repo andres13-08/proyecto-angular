@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "email": "user@gmail.com",
+      "password": "1234",
+      "role": "USER"
+    },
+    {
+      "id": "3",
+      "username": "user2",
+      "email": "user2@gmail.com",
+      "password": "1234",
+      "role": "USER"
+    }
+  ],
+  "courses": [
+    {
+      "id": 7,
+      "title": "Dominio de la Automatización con Nocode/Low-code",
+      "description": "Enseñar a emprendedores y dueños de pymes a automatizar tareas repetitivas (ej. envío de emails, gestión de redes, CRM) sin saber programar.",
+      "beginDate": "2025-11-12T05:00:00.000Z",
+      "endDate": "2025-11-19T05:00:00.000Z",
+      "status": "SCHEDULED"
+    },
+    {
+      "id": 8,
+      "title": "Creación de Contenido Viral para TikTok e Instagram Reels",
+      "description": "Guía práctica para crear videos cortos que enganchen a la audiencia, desde la ideación del script hasta la edición final.",
+      "beginDate": "",
+      "endDate": "",
+      "status": "SCHEDULED"
+    },
+    {
+      "id": 9,
+      "title": "Fundamentos de Marketing Digital con Enfoque en Conversión (CRO) ",
+      "description": "No solo enseñar a usar las redes, sino a convertir clics en ventas. Va más allá de lo básico, centrándose en el diseño de embudos (funnels) efectivos.",
+      "beginDate": "2026-02-10T05:00:00.000Z",
+      "endDate": "2026-02-26T05:00:00.000Z",
+      "status": "SCHEDULED"
+    }
+  ],
+  "students": []
+}
