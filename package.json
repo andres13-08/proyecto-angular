@@ -1,0 +1,12 @@
+{
+	"devDependencies": {
+		"@types/jasmine": "^5.1.13",
+		"@types/uuid": "^11.0.0"
+	},
+	"dependencies": {
+		"@angular/animations": "^21.0.3",
+		"@ngrx/store-devtools": "^20.1.0",
+		"sweetalert2": "^11.26.3",
+		"uuid": "^13.0.0"
+	}
+}
