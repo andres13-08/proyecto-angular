@@ -1,2 +1,33 @@
+@if (mostrarLayout) {
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="!isMobile && sidenavOpened"
+    class="sidenav"
+    [fixedInViewport]="isMobile"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0"
+  >
+    @if (isMobile) {
+    <div class="sidenav-header-mobile">
+      <button mat-icon-button (click)="sidenav.close()" class="close-btn">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    }
 
-<router-outlet><router-outlet/>
+    <app-navbar (menuItemClicked)="isMobile ? sidenav.close() : null"></app-navbar>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+} @else {
+<router-outlet></router-outlet>
+}

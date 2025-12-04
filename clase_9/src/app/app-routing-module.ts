@@ -1,27 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Login } from './featured/auth/login/login';
-import { Dashboard } from './featured/dashboard/dashboard';
-import { authGuard } from './core/guards/auth/auth-guard';
-import { loginGuard } from './core/guards/login/login-guard';
+import { authGuard } from './core/guards/auth.guard';
+import { LoginComponent } from './featured/auth/login.component';
+import { InicioComponent } from './featured/dashboard/inicio.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'inicio', component: InicioComponent, canActivate: [authGuard] },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    path: 'alumnos',
+    loadChildren: () => import('./featured/alumnos/alumnos.module').then((m) => m.AlumnosModule),
   },
   {
-    path: 'login',
-    component: Login,
-    canActivate: [loginGuard],
-  },
-  {
-    path: 'dashboard',
-    component: Dashboard,
-    loadChildren: () =>
-      import('./featured/dashboard/dashboard-module').then((m) => m.DashboardModule),
-    canActivate: [authGuard],
+    path: 'cursos',
+    loadChildren: () => import('./featured/cursos/cursos.module').then((m) => m.CursosModule),
   },
 ];
 
